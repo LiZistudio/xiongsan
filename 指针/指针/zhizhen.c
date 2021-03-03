@@ -23,11 +23,11 @@
 //	}
 //	return 0;
 //}
-int main()
-{
-	int a = 10;
-	int* pa = &a;
-	int** ppa = &pa;//ppa为二级指针
-
-	return 0;
-}
+//int main()
+//{
+//	int a = 10;
+//	int* pa = &a;
+//	int** ppa = &pa;//ppa为二级指针
+//
+//	return 0;
+//}
