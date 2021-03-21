@@ -56,27 +56,110 @@
 //}
 
 
+//int main()
+//{
+//	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int* p = arr;
+//	int i = 0;
+//	for ( i = 0; i < 10; i++)
+//	{
+//		printf("%d ", *(p + i));
+//
+//	}
+//	/*int(*pa)[10] = &arr;
+//	int i = 0;
+//	for (i = 0; i < 10; i++)
+//	{
+//		printf("%d ", *(*pa+i));
+//	}*/
+//	/*for ( i = 0; i < 10; i++)
+//	{
+//		printf("%d ", (*pa)[i]);
+//	}*/
+//	return 0;
+//}
+
+//int main()
+//{
+//	//字符指针
+//	char ch = 'w';
+//	char* p = &ch;
+//	const char* p2 = "abcdef";//常量字符串不能被修改
+//	//指针数组——存放指针的数组
+//	int* arr[10];
+//	char* ch[5];
+//	//数组指针——指向数组
+//	//int* p3;//整型指针——指向整型
+//	//char* p4;//字符指针——指向字符
+//	int arr2[5];//数组
+//	int(*pa)[5] = &arr2;//取出数组地址,pa就是数组指针
+//	
+//	return 0;
+//}
 
 
-int main()
+
+//void test(int arr[])
+//{}						//ok
+//void test(int arr[10])
+//{}						//ok
+//void test(int* arr)
+//{}						//ok
+//
+//void test2(int* arr[])
+//{}						//ok
+//void test2(int** arr)
+//{}						//ok
+//
+//int main()
+//{
+//	int arr[10] = { 0 };
+//	int* arr2[20] = { 0 };
+//	test(arr);
+//	test2(arr2);
+//	return 0;
+//}
+
+//void test(int arr[3][5])
+//{}
+//void test(int arr[][5])
+//{}
+//void test(int (*arr)[5])
+//{}
+//int main()
+//{
+//	int arr[3][5] = { 0 };
+//	test(arr);//二维数组传参
+//
+//	return 0;
+//}
+
+
+//函数指针
+//int Add(int a,int b)
+//{
+//	int z = 0;
+//	z = a + b;
+//	return z;
+//}
+//int main()
+//{
+//	/*int a = 10;
+//	int b = 20;
+//	int ret = Add(a, b);
+//	printf("%p\n", &Add);
+//	printf("%d", ret);*/
+//	int (*pa)(int , int) = Add;
+//	printf("%d\n", (*pa)(2, 3));
+//	return 0;
+//}
+
+void Print(char* str)
 {
-	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
-	int* p = arr;
-	int i = 0;
-	for ( i = 0; i < 10; i++)
-	{
-		printf("%d ", *(p + i));
-
-	}
-	/*int(*pa)[10] = &arr;
-	int i = 0;
-	for (i = 0; i < 10; i++)
-	{
-		printf("%d ", *(*pa+i));
-	}*/
-	/*for ( i = 0; i < 10; i++)
-	{
-		printf("%d ", (*pa)[i]);
-	}*/
+	printf("%s\n", str);
+}
+int main() {
+	void (*p)(char*) = Print;
+	(*p)("哈哈");
 	return 0;
 }
