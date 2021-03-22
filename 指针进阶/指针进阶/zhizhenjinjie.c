@@ -150,16 +150,60 @@
 //	printf("%p\n", &Add);
 //	printf("%d", ret);*/
 //	int (*pa)(int , int) = Add;
-//	printf("%d\n", (*pa)(2, 3));
+//	printf("%d\n", (*pa)(2, 3));==printf("%d\n", pa(2, 3));==printf("%d\n", Add(2, 3));
 //	return 0;
 //}
 
-void Print(char* str)
-{
-	printf("%s\n", str);
-}
-int main() {
-	void (*p)(char*) = Print;
-	(*p)("哈哈");
-	return 0;
-}
+//void Print(char* str)
+//{
+//	printf("%s\n", str);
+//}
+//int main() {
+//	void (*p)(char*) = Print;
+//	(*p)("哈哈");
+//	return 0;
+//}
+
+//代码1
+//(*(void (*)())0)();
+
+
+
+//代码2
+//void (*signal(int, void(*)(int)))(int);
+
+
+//函数指针数组
+//int Add(int x,int y)
+//{
+//	return x + y;
+//}
+//int Sub(int x, int y)
+//{
+//	return x - y;
+//}
+//int Mul(int x, int y)
+//{
+//	return x * y;
+//}
+//int Div(int x, int y)
+//{
+//	return x / y;
+//}
+//int main()
+//{
+//	int i = 0;
+//	int(*parr[4])(int, int) = { Add,Sub,Mul,Div };
+//	for ( i = 0;  i < 4;  i++)
+//	{
+//		printf("%d\n", parr[i](2, 3));
+//	}
+//	return 0;
+//}
+
+char* my_strcpy(char* dest, const char* src);
+//1.写一个函数指针pf，能够指向my_strcpy
+//2.写一个函数指针数组pfArr，能够存放4个my_strcpy函数的地址
+char* (*pf)(char*, const char*) = my_strcpy;
+char* (*pfArr[4])(char*, const char*) = { my_strcpy,my_strcpy,my_strcpy,my_strcpy };
+
