@@ -7,6 +7,7 @@
 */
 
 #include<stdio.h>
+#include<stdlib.h>
 
 //int main()
 //{
@@ -201,9 +202,151 @@
 //	return 0;
 //}
 
-char* my_strcpy(char* dest, const char* src);
-//1.写一个函数指针pf，能够指向my_strcpy
-//2.写一个函数指针数组pfArr，能够存放4个my_strcpy函数的地址
-char* (*pf)(char*, const char*) = my_strcpy;
-char* (*pfArr[4])(char*, const char*) = { my_strcpy,my_strcpy,my_strcpy,my_strcpy };
+//char* my_strcpy(char* dest, const char* src);
+////1.写一个函数指针pf，能够指向my_strcpy
+////2.写一个函数指针数组pfArr，能够存放4个my_strcpy函数的地址
+//char* (*pf)(char*, const char*) = my_strcpy;
+//char* (*pfArr[4])(char*, const char*) = { my_strcpy,my_strcpy,my_strcpy,my_strcpy };
 
+//*********************************21.3.29****************************************************
+//int Add(int x,int y)
+//{
+//	return x + y;
+//}
+//int main()
+//{
+//	//指针数组
+//	int* arr[10];
+//	//数组指针
+//	int* (*pa)[10] = &arr;
+//	//函数指针
+//	int (*pAdd)(int, int) = Add;//&Add
+//	//函数指针调用
+//	int sum = pAdd(1, 2);//==(*pAdd)(1,2);==Add(1,2);
+//	//函数指针的数组
+//	int (*pArr[10])(int, int);
+//	//指向函数指针数组的指针
+//	int (*(*ppArr)[10])(int, int) = &pArr;
+//	return 0;
+//}
+//***************回调函数*********************************************************
+
+/**冒泡*/
+//void bubble_sort(int* arr,int sz)
+//{
+//	int i = 0;
+//	int j = 0;
+//	for ( i = 0; i < sz-1; i++)
+//	{
+//		for ( j = 0; j < sz-i-1 ; j++)
+//		{
+//			if (arr[j]>arr[j+1])
+//			{
+//				int t = arr[j];
+//				arr[j] = arr[j + 1];
+//				arr[j + 1] = t;
+//			}
+//		}
+//	}
+//}
+//
+//int main()
+//{
+//
+//	int arr[10] = { 1,2,3,4,5,6,7,8,9,0 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//
+//	bubble_sort(arr,sz);
+//	int i = 0;
+//	for ( i = 0; i < sz; i++)
+//	{
+//		printf("%d", arr[i]);
+//	}
+//	return 0;
+//}
+//******************************qsort()****************************************************************
+
+//void qsort(void* base,
+//		   size_t num, 
+//	       size_t width,
+//	       int(__cdecl* compare)(const void* elem1, const void* elem2)
+//		  );
+
+
+//int cmp_int1(const void* e1, const void* e2)
+//{
+//	return *(int*)e1 - *(int*)e2;
+//}
+//
+//int cmp_int2(const void* e1, const void* e2)
+//{
+//	return *(float*)e1 - *(float*)e2;
+//}
+//
+//void test1()
+//{
+//	int arr[10] = { 1,2,3,4,5,6,7,8,9,0 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//
+//	qsort(arr, sz, sizeof(arr[0]), cmp_int1);
+//	int i = 0;
+//	for (i = 0; i < sz; i++)
+//	{
+//		printf(" %d", arr[i]);
+//	}
+//}
+//void test2()
+//{
+//	float arr[10] = { 1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,0.0 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//
+//	qsort(arr, sz, sizeof(arr[0]), cmp_int2);
+//	int i = 0;
+//	printf("\n");
+//	for (i = 0; i < sz; i++)
+//	{
+//		printf(" %lf", arr[i]);
+//	}
+//}
+//int main()
+//{
+//	test1();
+//	test2();
+//	return 0;
+//}
+
+
+
+int cmp_int(const void* e1, const void* e2)
+{
+    return *(int*)e1 - *(int*)e2;
+}
+void test()
+{
+    int arr[] = { 0 };
+    int n = 0;
+    int i = 0;
+    int a = 0;
+    printf("排序>:\n");
+    printf("亲输入要排序的数字个数>:\n");
+    scanf("%d", &n);
+    for (i = 0; i < n; i++)
+    {
+        printf("亲输入数字>:\n");
+        scanf("%d", &a);
+        arr[i] = a;
+    }
+    qsort(arr, n, sizeof(arr[0]), cmp_int);
+    printf("正确顺序是:>\n");
+    for (i = 0; i < n; i++)
+    {
+        printf(" %d", arr[i]);
+    }
+    printf("\n");
+    system("pause");
+}
+int main()
+{
+    test();
+    return 0;
+}
