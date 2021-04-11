@@ -159,7 +159,7 @@ char* MyStrstr(const char* p1,const char* p2)
 		return p1;
 	}
 	//²éÕÒ¹ı³Ì
-
+	
 }
 int main()
 {
