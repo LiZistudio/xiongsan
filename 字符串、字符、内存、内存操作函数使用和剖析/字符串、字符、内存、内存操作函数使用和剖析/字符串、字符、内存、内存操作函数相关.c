@@ -150,8 +150,31 @@
 
 //************************************strstr();查找字符串***********************************************
 
+//模拟实现strstr（）；
+char* MyStrstr(const char* p1,const char* p2)
+{
+	assert(p1 && p2);//使用assert别忘了引头文件#include <assert.h>
+	if (*p2=='\0')
+	{
+		return p1;
+	}
+	//查找过程
+
+}
 int main()
 {
-
+	char* arr1 = "hello world";
+	char* arr2 = "world";
+	char* ret1 = strstr(arr1, arr2);
+	char* ret2 = MyStrstr(arr1, arr2);
+	if (ret1==NULL)
+	{
+		printf("子串不存在");
+	}
+	else
+	{
+		printf("%s\n", ret1);
+		printf("%s\n", ret2);
+	}
 	return 0;
 }
