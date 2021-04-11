@@ -151,19 +151,39 @@
 //************************************strstr();查找字符串***********************************************
 
 //模拟实现strstr（）；
+//前方高能！！！
 char* MyStrstr(const char* p1,const char* p2)
 {
 	assert(p1 && p2);//使用assert别忘了引头文件#include <assert.h>
+	char* s1 = p1;
+	char* s2 = p2;
+	char* start = p1;
 	if (*p2=='\0')
 	{
 		return p1;
 	}
-	//查找过程
-	
+	while (*start)
+	{
+		s1 = start;
+		s2 = p2;
+		while ((*s1!='\0')&&(*s2!='\0')&&(*s1==*s2))
+		{
+			s1++;
+			s2++;
+		}
+		if (*s2=='\0')
+		{
+			return start;//找到子串
+		}
+		start++;
+	}
+
+	return NULL;//找不到子串
 }
+
 int main()
 {
-	char* arr1 = "hello world";
+	char* arr1 = "hello wworlddef";
 	char* arr2 = "world";
 	char* ret1 = strstr(arr1, arr2);
 	char* ret2 = MyStrstr(arr1, arr2);
