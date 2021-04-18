@@ -117,25 +117,110 @@ int main()
 
 //****************************枚举************************************
 
+//enum Sex//枚举类型
+//{
+//	//枚举的可能取值
+//	MALE,//0
+//	FEMALE,//1
+//	SECRET//2
+//};
+//enum color
+//{
+//	red,//0
+//	yellow,//1
+//	green,//2
+//	blue=5//3
+//};
+//int main()
+//{
+//
+//	enum Sex s = MALE;
+//	enum color c1 = green;
+//	enum color c2 = red;
+//	enum color c3 = yellow;
+//	enum color c4 = blue;
+//	printf("%d %d %d %d\n", c1, c2, c3, c4);
+//	return 0;
+//}
 
-enum Sex//枚举类型
-{
-	//枚举的可能取值
-	MALE,//0
-	FEMALE,//1
-	SECRET//2
-};
-enum color
-{
-	red,//0
-	yellow,//1
-	green,//2
-	blue//3
-};
-int main()
-{
-	enum Sex s = MALE;
-	enum color c = green;
+//*****************************枚举的优点*********************************
 
-	return 0;
-}
+//enum color
+//{
+//	red,
+//	yellow,
+//	blue
+//};
+//
+////c语言源代码————>预编译—————>编译——————>链接———————>可执行程序
+//#define red 1
+//#define yellow 2
+//#define blue 3
+//
+//int main()
+//{
+//	int color = red;
+//	
+//	return 0;
+//}
+
+//*********************联合********************
+//联合也叫联合体或者共用体
+
+//union Un
+//{
+//	char c;
+//	int i;
+//};
+//int main()
+//{
+//	union Un u;
+//	printf("%d\n", sizeof(u));
+//	return 0;
+//}
+
+//****************判断大小端***************
+
+//int main()
+//{
+//	int a = 1;
+//	if (1==*(char*)&a)
+//	{
+//		printf("小端");
+//	}
+//	else
+//	{
+//		printf("大端");
+//	}
+//	//int a = 0x11223344;
+//	//讨论一个数据放在内存中的字节顺序
+//	//大小端字节序问题
+//	//
+//
+//	return 0;
+//}
+
+//union Un
+//{
+//	char c;
+//	int i;
+//};
+//int check_sys()
+//{
+//	union Un u;
+//	u.i = 1;
+//	return u.c;
+//}
+//int main()
+//{
+//	int ret=check_sys();
+//	if (1==ret)
+//	{
+//		printf("小端");
+//	}
+//	else
+//	{
+//		printf("大端");
+//	}
+//	return 0;
+//}
