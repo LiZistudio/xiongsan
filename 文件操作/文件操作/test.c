@@ -75,3 +75,65 @@
 //	return 0;
 //}
 
+
+//struct S
+//{
+//	char name[20];
+//	int age;
+//	double score;
+//};
+//int main()
+//{
+//	struct S tmp = { 0 };
+//	struct S s = { "张三",23,60 };
+//	FILE* pf = fopen("text.txt", "wb");
+//	if (pf==NULL)
+//	{
+//		printf("%s\n",strerror(errno));
+//	}
+//	//二进制的形式写文件
+//	fwrite(&s, sizeof(struct S), 1, pf);
+//	fclose(pf);
+//	pf == NULL;
+//	FILE* p = fopen("text.txt", "rb");
+//	if (p == NULL)
+//	{
+//		printf("%s\n", strerror(errno));
+//	}
+//	//二进制的形式读文件
+//	fread(&tmp, sizeof(struct S), 1, p);
+//	printf("%s %d %lf\n", tmp.name, tmp.age, tmp.score);
+//	fclose(p);
+//	p = NULL;
+//	return 0;
+//}
+
+
+//文件指针定位
+int main()
+{
+	char arr[10] = "1 2 3 4 5";
+	FILE* pf = fopen("text.txt", "w");
+	if (pf==NULL)
+	{
+		printf("%s\n", strerror(errno));
+		return 0;
+	}
+	fwrite(arr, 1, 10, pf);
+	fclose(pf);
+	pf = NULL;
+	FILE* p = fopen("text.txt", "r");
+	if (p == NULL)
+	{
+		printf("%s\n", strerror(errno));
+		return 0;
+	}
+	//定位文件指针
+	fseek(p, -2, SEEK_END);
+	//读取文件
+	char ch = fgetc(p);
+	printf("%c\n", ch);
+	fclose(p);
+	p = NULL;
+	return 0;
+}
